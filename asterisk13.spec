@@ -983,9 +983,9 @@ cd $RPM_BUILD_DIR
 
 /var/lib/asterisk/scripts/*
 
-%attr(0755,asterisk,asterisk) %dir %{logdir}/asterisk
-%attr(0755,asterisk,asterisk) %dir %{logdir}/asterisk/cdr-csv
-%attr(0755,asterisk,asterisk) %dir %{logdir}/asterisk/cdr-custom
+%attr(0700,asterisk,asterisk) %dir %{logdir}/asterisk
+%attr(0700,asterisk,asterisk) %dir %{logdir}/asterisk/cdr-csv
+%attr(0700,asterisk,asterisk) %dir %{logdir}/asterisk/cdr-custom
 
 
 %config %{_sysconfdir}/logrotate.d/asterisk
