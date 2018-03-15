@@ -17,7 +17,6 @@ Source2: asterisk.logrotate
 Patch2: voicemail-splitopts.patch
 Patch3: voicemail-splitopts-odbcstorage.patch
 Patch4: voicemail-splitopts-imapstorage.patch
-Patch6: lazymembers.patch
 Patch8: ASTERISK-rb3984.patch
 
 BuildRoot: %{_tmppath}/asterisk-%{version}-root
@@ -571,7 +570,6 @@ cp apps/app_voicemail.exports.in apps/app_voicemail_imapstorage.exports.in
 %endif
 
 %patch2 -p0
-%patch6 -p1
 %patch8 -p0
 
 %build
