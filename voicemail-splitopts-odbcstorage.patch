@@ -2,7 +2,7 @@ Index: apps/app_voicemail_odbcstorage.c
 ===================================================================
 --- apps/app_voicemail_odbcstorage.c	(revision 348734)
 +++ apps/app_voicemail_odbcstorage.c	(working copy)
-@@ -43,33 +43,6 @@
+@@ -53,32 +53,6 @@
  	<support_level>core</support_level>
   ***/
  
@@ -16,7 +16,6 @@ Index: apps/app_voicemail_odbcstorage.c
 -	</member>
 -	<member name="ODBC_STORAGE" displayname="Storage of Voicemail using ODBC">
 -		<depend>generic_odbc</depend>
--		<depend>ltdl</depend>
 -		<conflict>IMAP_STORAGE</conflict>
 -		<conflict>FILE_STORAGE</conflict>
 -		<defaultenabled>no</defaultenabled>

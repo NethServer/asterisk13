@@ -7,9 +7,9 @@
 
 Summary: Asterisk, The Open Source PBX
 Name: asterisk13
-Version: 13.19.1
+Version: 13.24.0
 # reset release to 1 with each version bump
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: GPL
 Group: Utilities/System
 Source: https://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-%{version}.tar.gz
@@ -769,7 +769,6 @@ cd $RPM_BUILD_DIR
 %{_libdir}/asterisk/modules/format_wav_gsm.so
 %{_libdir}/asterisk/modules/format_wav.so
 %{_libdir}/asterisk/modules/func_aes.so
-%{_libdir}/asterisk/modules/func_audiohookinherit.so
 %{_libdir}/asterisk/modules/func_base64.so
 %{_libdir}/asterisk/modules/func_blacklist.so
 %{_libdir}/asterisk/modules/func_callcompletion.so
@@ -919,7 +918,6 @@ cd $RPM_BUILD_DIR
 %{_libdir}/asterisk/modules/res_pjsip_publish_asterisk.so
 %{_libdir}/asterisk/modules/res_pjsip_refer.so
 %{_libdir}/asterisk/modules/res_pjsip_registrar.so
-%{_libdir}/asterisk/modules/res_pjsip_registrar_expire.so
 %{_libdir}/asterisk/modules/res_pjsip_rfc3326.so
 %{_libdir}/asterisk/modules/res_pjsip_sdp_rtp.so
 %{_libdir}/asterisk/modules/res_pjsip_session.so
@@ -950,7 +948,6 @@ cd $RPM_BUILD_DIR
 %{_libdir}/asterisk/modules/func_pjsip_aor.so
 %{_libdir}/asterisk/modules/func_pjsip_contact.so
 %{_libdir}/asterisk/modules/res_pjsip_config_wizard.so
-%{_libdir}/asterisk/modules/res_pjsip_transport_management.so
 %{_libdir}/asterisk/modules/res_pjsip_sips_contact.so
 %{_libdir}/asterisk/modules/func_holdintercept.so
 %{_libdir}/asterisk/modules/res_odbc_transaction.so
@@ -1439,6 +1436,16 @@ cd $RPM_BUILD_DIR
 %endif
 
 %changelog
+* Wed Jan 23 2019 Stefano Fancello <stefano.fancello@nethesis.it> - 13.22.0-1
+- Update from 13.19 to 13.24
+
+* Thu Jul 26 2018 Stefano Fancello <stefano.fancello@nethesis.it> - 13.19.1-1
+- Asterisk 13: update from 13.17 to 13.19 - NethServer/dev#5524
+- Remove iksemel requires since it's no more maintained on epel NethServer/dev#5524
+- Update lazymember patch
+- Removed unbuilt docs
+- Add increase-max-stack patch
+
 * Thu Jan 25 2018 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 13.17.2-3-1
 - PBX: Asterisk logs aren't rotated - Bug NethServer/dev#5411
 

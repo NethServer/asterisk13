@@ -21,7 +21,7 @@ Index: apps/app_voicemail.c
 ===================================================================
 --- apps/app_voicemail.c	(revision 348734)
 +++ apps/app_voicemail.c	(working copy)
-@@ -44,28 +44,18 @@
+@@ -54,27 +54,17 @@
   ***/
  
  /*** MAKEOPTS
@@ -35,12 +35,11 @@ Index: apps/app_voicemail.c
 +<category name="MENUSELECT_OPTS_app_voicemail_odbcstorage" displayname="Voicemail ODBC Storage Build Options" positive_output="yes" touch_on_change="apps/app_voicemail_odbcstorage.c apps/app_directory_odbcstorage.c">
  	<member name="ODBC_STORAGE" displayname="Storage of Voicemail using ODBC">
  		<depend>generic_odbc</depend>
- 		<depend>ltdl</depend>
 -		<conflict>IMAP_STORAGE</conflict>
 -		<conflict>FILE_STORAGE</conflict>
 -		<defaultenabled>no</defaultenabled>
 -		<support_level>core</support_level>
-+		<defaultenabled>yes</defaultenabled>
++        <defaultenabled>yes</defaultenabled>
  	</member>
 +</category>
 +<category name="MENUSELECT_OPTS_app_voicemail_imapstorage" displayname="Voicemail IMAP Storage Build Options" positive_output="yes" touch_on_change="apps/app_voicemail_imapstorage.c apps/app_directory_imapstorage.c">
@@ -51,7 +50,7 @@ Index: apps/app_voicemail.c
  		<use type="external">openssl</use>
 -		<defaultenabled>no</defaultenabled>
 -		<support_level>core</support_level>
-+		<defaultenabled>yes</defaultenabled>
++        <defaultenabled>yes</defaultenabled>
  	</member>
  </category>
  ***/
