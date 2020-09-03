@@ -1,7 +1,7 @@
-diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app_queue.c
---- asterisk-13.34.0/apps/app_queue.c	2020-06-11 10:42:48.000000000 +0200
-+++ asterisk-13.34.0.lazymembers/apps/app_queue.c	2020-07-08 15:18:45.685256648 +0200
-@@ -1510,6 +1510,7 @@
+diff -ur asterisk-13.35.0/apps/app_queue.c asterisk-13.35.0.ori/apps/app_queue.c
+--- asterisk-13.35.0/apps/app_queue.c	2020-07-16 17:57:39.000000000 +0200
++++ asterisk-13.35.0.ori/apps/app_queue.c	2020-09-03 10:27:12.589261023 +0200
+@@ -1508,6 +1508,7 @@
  	int callcompletedinsl;               /*!< Whether the current call was completed within service level */
  	time_t starttime;                    /*!< The time at which the member answered the current caller. */
  	time_t lastcall;                     /*!< When last successful call was hungup */
@@ -9,7 +9,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  	struct call_queue *lastqueue;        /*!< Last queue we received a call */
  	unsigned int dead:1;                 /*!< Used to detect members deleted in realtime */
  	unsigned int delme:1;                /*!< Flag to delete entry on reload */
-@@ -1639,6 +1640,7 @@
+@@ -1637,6 +1638,7 @@
  	int weight;                         /*!< Respective weight */
  	int autopause;                      /*!< Auto pause queue members if they fail to answer */
  	int autopausedelay;                 /*!< Delay auto pause for autopausedelay seconds since last call */
@@ -17,7 +17,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  	int timeoutpriority;                /*!< Do we allow a fraction of the timeout to occur for a ring? */
  
  	/* Queue strategy things */
-@@ -2211,6 +2213,9 @@
+@@ -2209,6 +2211,9 @@
  				ast_debug(4, "%s is unavailable because his penalty is not between %d and %d\n", member->membername, min_penalty, max_penalty);
  				continue;
  			}
@@ -27,7 +27,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  		}
  
  		switch (devstate ? ast_device_state(member->state_interface) : member->status) {
-@@ -2452,7 +2457,11 @@
+@@ -2450,7 +2455,11 @@
  
  			/* check every member until we find one NOT_INUSE */
  			if (!avail) {
@@ -39,7 +39,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  			}
  			if (avail && found_member) {
  				/* early exit as we've found an available member and the member of interest */
-@@ -3149,6 +3158,16 @@
+@@ -3147,6 +3156,16 @@
  		}
  	} else if (!strcasecmp(param, "autopause")) {
  		q->autopause = autopause2int(val);
@@ -56,7 +56,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  	} else if (!strcasecmp(param, "autopausedelay")) {
  		q->autopausedelay = atoi(val);
  	} else if (!strcasecmp(param, "autopausebusy")) {
-@@ -4145,7 +4164,9 @@
+@@ -4143,7 +4162,9 @@
  	mem_iter = ao2_iterator_init(q->members, 0);
  	while ((mem = ao2_iterator_next(&mem_iter))) {
  
@@ -66,18 +66,19 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  		ao2_ref(mem, -1);
  
  		/* If autofill is not enabled or if the queue's strategy is ringall, then
-@@ -4254,6 +4275,10 @@
+@@ -4254,6 +4275,11 @@
  		return 0;
  	}
  
-+	if (qe->parent->LazyMembers && call->member->lastnoanswer) {
-+                ast_log(LOG_DEBUG, "%s honoring LazyMembers\n", call->interface);
-+                return 0;
-+        }
- 	if (use_weight && compare_weight(qe->parent, call->member)) {
++    if (qe->parent->LazyMembers && call->member->lastnoanswer) {
++        ast_log(LOG_DEBUG, "%s honoring LazyMembers\n", call->interface);
++		return 0;
++	}
++
+ 	if (use_weight && compare_weight(qe->parent, memberp)) {
  		ast_debug(1, "Priority queue delaying call to %s:%s\n",
  			qe->parent->name, call->interface);
-@@ -4636,6 +4661,20 @@
+@@ -4636,6 +4662,20 @@
  	qe->parent->callsabandoned++;
  	ao2_unlock(qe->parent);
  
@@ -98,7 +99,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  	ast_channel_publish_cached_blob(qe->chan, queue_caller_abandon_type(), blob);
  }
  
-@@ -5059,6 +5098,10 @@
+@@ -5059,6 +5099,10 @@
  							endtime = (long) time(NULL);
  							endtime -= starttime;
  							rna(endtime * 1000, qe, o->chan, on, membername, qe->parent->autopausebusy);
@@ -109,7 +110,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  							do_hang(o);
  							if (qe->parent->strategy != QUEUE_STRATEGY_RINGALL) {
  								if (qe->parent->timeoutrestart) {
-@@ -5268,6 +5311,10 @@
+@@ -5268,6 +5312,10 @@
  	if (!*to) {
  		for (o = start; o; o = o->call_next) {
  			if (o->chan) {
@@ -120,7 +121,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  				rna(orig, qe, o->chan, o->interface, o->member->membername, 1);
  			}
  		}
-@@ -6528,6 +6575,8 @@
+@@ -6528,6 +6576,8 @@
  	char tmpid[256];
  	int forwardsallowed = 1;
  	int block_connected_line = 0;
@@ -129,7 +130,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  	struct ao2_iterator memi;
  	struct queue_end_bridge *queue_end_bridge = NULL;
  	int callcompletedinsl;
-@@ -6647,6 +6696,8 @@
+@@ -6645,6 +6695,8 @@
  			/* Put them in the list of outgoing thingies...  We're ready now.
  			   XXX If we're forcibly removed, these outgoing calls won't get
  			   hung up XXX */
@@ -137,8 +138,8 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
 +                        	nummems++;
  			tmp->q_next = outgoing;
  			outgoing = tmp;
- 			/* If this line is up, don't try anybody else */
-@@ -6680,6 +6731,21 @@
+ 		} else {
+@@ -6675,6 +6727,21 @@
  	ao2_unlock(qe->parent);
  	/* Call the queue members with the best metric now. */
  	ring_one(qe, outgoing, &numbusies);
@@ -160,7 +161,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  	lpeer = wait_for_answer(qe, outgoing, &to, &digit, numbusies,
  		ast_test_flag(&(bridge_config.features_caller), AST_FEATURE_DISCONNECT),
  		forwardsallowed);
-@@ -6696,6 +6762,32 @@
+@@ -6691,6 +6758,32 @@
  	peer = lpeer ? lpeer->chan : NULL;
  	if (!peer) {
  		qe->pending = 0;
@@ -193,7 +194,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  		if (to) {
  			/* Must gotten hung up */
  			res = -1;
-@@ -6728,6 +6820,16 @@
+@@ -6723,6 +6816,16 @@
  		/* Increment the refcount for this member, since we're going to be using it for awhile in here. */
  		ao2_ref(member, 1);
  		hangupcalls(qe, outgoing, peer, qe->cancel_answered_elsewhere);
@@ -210,7 +211,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  		outgoing = NULL;
  		if (announce || qe->parent->reportholdtime || qe->parent->memberdelay) {
  			int res2;
-@@ -7178,7 +7280,7 @@
+@@ -7173,7 +7276,7 @@
  			member_add_to_queue(q, new_member);
  			queue_publish_member_blob(queue_member_added_type(), queue_member_blob_create(q, new_member));
  
@@ -219,7 +220,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  				ast_devstate_changed(AST_DEVICE_NOT_INUSE, AST_DEVSTATE_CACHABLE, "Queue:%s_avail", q->name);
  			}
  
-@@ -7261,7 +7363,7 @@
+@@ -7256,7 +7359,7 @@
  		dump_queue_members(q);
  	}
  
@@ -228,7 +229,7 @@ diff -ur asterisk-13.34.0/apps/app_queue.c asterisk-13.34.0.lazymembers/apps/app
  		ast_devstate_changed(AST_DEVICE_NOT_INUSE, AST_DEVSTATE_CACHABLE,
  			"Queue:%s_avail", q->name);
  	} else if (!num_available_members(q)) {
-@@ -8204,6 +8306,20 @@
+@@ -8199,6 +8302,20 @@
  		} else if (qe.valid_digits) {
  			ast_queue_log(args.queuename, ast_channel_uniqueid(chan), "NONE", "EXITWITHKEY",
  				"%s|%d|%d|%ld", qe.digits, qe.pos, qe.opos, (long) (time(NULL) - qe.start));
