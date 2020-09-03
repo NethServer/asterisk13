@@ -549,7 +549,7 @@ chan_ooh323 module for Asterisk
 %endif
 
 %prep
-%setup -n asterisk-%{version}
+%setup -q -n asterisk-%{version}
 
 # Create copies for odbcstorage and imapstorage voicemail modules.
 %{?_without_voicemail_odbcstorage:%if 0}
