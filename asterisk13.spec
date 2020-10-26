@@ -7,7 +7,7 @@
 
 Summary: Asterisk, The Open Source PBX
 Name: asterisk13
-Version: 13.35.0
+Version: 13.37.0
 # reset release to 1 with each version bump
 Release: 1%{?dist}
 License: GPL
@@ -1292,6 +1292,7 @@ cd $RPM_BUILD_DIR
 %{_includedir}/asterisk/stasis_test.h
 %{_includedir}/asterisk/statsd.h
 %{_includedir}/asterisk/threadpool.h
+%{_includedir}/asterisk/utf8.h
 %{_includedir}/asterisk/uuid.h
 %{_includedir}/asterisk/res_mwi_external.h
 %{_includedir}/asterisk/stasis_app_mailbox.h
