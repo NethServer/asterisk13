@@ -7,7 +7,7 @@
 
 Summary: Asterisk, The Open Source PBX
 Name: asterisk13
-Version: 13.37.1
+Version: 13.38.1
 # reset release to 1 with each version bump
 Release: 1%{?dist}
 License: GPL
