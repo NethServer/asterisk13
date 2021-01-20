@@ -1436,6 +1436,9 @@ cd $RPM_BUILD_DIR
 %endif
 
 %changelog
+* Wed Jan 20 2021 Stefano Fancello <stefano.fancello@nethesis.it> - 13.38.1-1
+- Update Asterisk to 13.38.1 - NethServer/dev#6386
+
 * Tue Nov 17 2020 Stefano Fancello <stefano.fancello@nethesis.it> - 13.37.1-1
 - Update Asterisk to 13.37.1 - NethServer/dev#6325
 
