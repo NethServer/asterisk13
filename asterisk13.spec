@@ -77,6 +77,9 @@ BuildRequires: jansson-devel
 %{!?_without_newt:BuildRequires: newt-devel}
 BuildConflicts: rh-postgresql-devel
 
+Requires: glibc >= 2.17-322
+BuildRequires: glibc >= 2.17-322
+
 %description
 Asterisk is an open source PBX and telephony development platform.  Asterisk
 can both replace a conventional PBX and act as a platform for the
