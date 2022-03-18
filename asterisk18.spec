@@ -430,6 +430,7 @@ Modules for Asterisk that use cURL.
 Summary: Modules for Asterisk that use DAHDI
 Requires: %{name}-core = %{version}-%{release}
 Requires: dahdi-tools >= 2.0.0
+Requires: libtonezone
 Requires(pre): %{_sbindir}/usermod
 Provides: asterisk-zaptel = %{version}-%{release}
 Provides: asterisk13-dahdi = 2:13.38.1-1
