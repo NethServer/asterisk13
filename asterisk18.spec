@@ -72,6 +72,12 @@ Source8:          https://raw.githubusercontent.com/asterisk/third-party/master/
 # Bundling jansson on EL7 and EL8, because the version in CentOS is too old
 Source9:          http://www.digip.org/jansson/releases/jansson-%{jansson_version}.tar.bz2
 
+Source10:         http://downloads.digium.com/pub/telephony/codec_g729/asterisk-18.0/x86-64/codec_g729a-18.0_current-x86_64.tar.gz
+Source11:         http://downloads.digium.com/pub/telephony/codec_opus/asterisk-18.0/x86-64/codec_opus-18.0_current-x86_64.tar.gz
+Source12:         http://downloads.digium.com/pub/telephony/codec_silk/asterisk-18.0/x86-64/codec_silk-18.0_current-x86_64.tar.gz
+Source13:         http://downloads.digium.com/pub/telephony/codec_siren7/asterisk-18.0/x86-64/codec_siren7-18.0_current-x86_64.tar.gz
+Source14:         http://downloads.digium.com/pub/telephony/codec_siren14/asterisk-18.0/x86-64/codec_siren14-18.0_current-x86_64.tar.gz
+
 %if 0%{?fedora} || 0%{?rhel} >= 8
 Patch0:           asterisk-mariadb.patch
 %endif
@@ -82,6 +88,7 @@ Patch1:           asterisk-16.1.0-explicit-python3.patch
 
 Patch1016: asterisk-18-mp3.patch
 
+Patch2: lazymembers.patch
 # Asterisk now builds against a bundled copy of pjproject, as they apply some patches
 # directly to pjproject before the build against it
 Provides:         bundled(pjproject) = %{pjsip_version}
@@ -745,6 +752,8 @@ echo '*************************************************************************'
 
 %patch1016 -p1
 
+%patch2 -p1
+
 cp %{S:3} menuselect.makedeps
 cp %{S:4} menuselect.makeopts
 
@@ -1049,6 +1058,14 @@ mkdir -p %{buildroot}/%{_sysconfdir}/samples-%{version}
 %{__cp} -v %{buildroot}/%{_sysconfdir}/asterisk/samples-%{version}/unistim.conf		%{buildroot}/%{_sysconfdir}/asterisk
 %endif
 
+# Additional codecs
+tar xzvvf %{S:10} --strip-components=1
+tar xzvvf %{S:11} --strip-components=1
+tar xzvvf %{S:12} --strip-components=1
+tar xzvvf %{S:13} --strip-components=1
+tar xzvvf %{S:14} --strip-components=1
+%{__cp} *.so %{buildroot}/%{_libdir}/asterisk/modules/
+
 %pre
 %{_sbindir}/groupadd -r asterisk &>/dev/null || :
 %{_sbindir}/useradd  -r -s /sbin/nologin -d /var/lib/asterisk -M \
@@ -1200,6 +1217,12 @@ fi
 %{_libdir}/asterisk/modules/codec_resample.so
 %{_libdir}/asterisk/modules/codec_speex.so
 %{_libdir}/asterisk/modules/codec_ulaw.so
+%{_libdir}/asterisk/modules/codec_g729a.so
+%{_libdir}/asterisk/modules/codec_opus.so
+%{_libdir}/asterisk/modules/format_ogg_opus.so
+%{_libdir}/asterisk/modules/codec_silk.so
+%{_libdir}/asterisk/modules/codec_siren14.so
+%{_libdir}/asterisk/modules/codec_siren7.so
 %{_libdir}/asterisk/modules/format_g719.so
 %{_libdir}/asterisk/modules/format_g723.so
 %{_libdir}/asterisk/modules/format_g726.so
