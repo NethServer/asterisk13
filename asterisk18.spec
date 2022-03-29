@@ -72,7 +72,6 @@ Source8:          https://raw.githubusercontent.com/asterisk/third-party/master/
 # Bundling jansson on EL7 and EL8, because the version in CentOS is too old
 Source9:          http://www.digip.org/jansson/releases/jansson-%{jansson_version}.tar.bz2
 
-Source10:         http://downloads.digium.com/pub/telephony/codec_g729/asterisk-18.0/x86-64/codec_g729a-18.0_current-x86_64.tar.gz
 Source11:         http://downloads.digium.com/pub/telephony/codec_opus/asterisk-18.0/x86-64/codec_opus-18.0_current-x86_64.tar.gz
 Source12:         http://downloads.digium.com/pub/telephony/codec_silk/asterisk-18.0/x86-64/codec_silk-18.0_current-x86_64.tar.gz
 Source13:         http://downloads.digium.com/pub/telephony/codec_siren7/asterisk-18.0/x86-64/codec_siren7-18.0_current-x86_64.tar.gz
@@ -1059,12 +1058,12 @@ mkdir -p %{buildroot}/%{_sysconfdir}/samples-%{version}
 %endif
 
 # Additional codecs
-tar xzvvf %{S:10} --strip-components=1
 tar xzvvf %{S:11} --strip-components=1
 tar xzvvf %{S:12} --strip-components=1
 tar xzvvf %{S:13} --strip-components=1
 tar xzvvf %{S:14} --strip-components=1
 %{__cp} *.so %{buildroot}/%{_libdir}/asterisk/modules/
+%{__cp} codec_opus_config-en_US.xml %{buildroot}/%{_datadir}/asterisk/documentation/thirdparty/
 
 %pre
 %{_sbindir}/groupadd -r asterisk &>/dev/null || :
@@ -1217,7 +1216,6 @@ fi
 %{_libdir}/asterisk/modules/codec_resample.so
 %{_libdir}/asterisk/modules/codec_speex.so
 %{_libdir}/asterisk/modules/codec_ulaw.so
-%{_libdir}/asterisk/modules/codec_g729a.so
 %{_libdir}/asterisk/modules/codec_opus.so
 %{_libdir}/asterisk/modules/format_ogg_opus.so
 %{_libdir}/asterisk/modules/codec_silk.so
@@ -1538,6 +1536,7 @@ fi
 %dir %{_datadir}/asterisk
 %dir %{_datadir}/asterisk/agi-bin
 %{_datadir}/asterisk/documentation
+#%{_datadir}/asterisk/documentation/thirdparty/codec_opus_config-en_US.xml
 %{_datadir}/asterisk/images
 %attr(0750,asterisk,asterisk) %{_datadir}/asterisk/keys
 %{_datadir}/asterisk/phoneprov
