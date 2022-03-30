@@ -313,7 +313,7 @@ Summary: Asterisk-addons core package.
 Group: Utilities/System
 Requires: %{name}-core = %{version}-%{release}
 Provides: %{name}-addons-core
-Provides: asteriak13-addons-core
+Provides: asterisk13-addons-core
 
 %description addons-core
 This package contains a base install of Asterisk-addons without any "extras".
