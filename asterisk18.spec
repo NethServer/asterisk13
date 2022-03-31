@@ -75,14 +75,6 @@ Source12:         http://downloads.digium.com/pub/telephony/codec_silk/asterisk-
 Source13:         http://downloads.digium.com/pub/telephony/codec_siren7/asterisk-18.0/x86-64/codec_siren7-18.0_current-x86_64.tar.gz
 Source14:         http://downloads.digium.com/pub/telephony/codec_siren14/asterisk-18.0/x86-64/codec_siren14-18.0_current-x86_64.tar.gz
 
-%if 0%{?fedora} || 0%{?rhel} >= 8
-Patch0:           asterisk-mariadb.patch
-%endif
-
-%if 0%{?fedora} || 0%{?rhel} >=7
-Patch1:           asterisk-16.1.0-explicit-python3.patch
-%endif
-
 Patch1016: asterisk-18-mp3.patch
 
 Patch2: lazymembers.patch
@@ -738,14 +730,6 @@ echo '*************************************************************************'
 ls -altr cache/
 pwd
 echo '*************************************************************************'
-
-%if 0%{?fedora} || 0%{?rhel} >=8
-%patch0 -p1
-%endif
-
-#%if 0%{?fedora} || 0%{?rhel} >=7
-#%patch1 -p1
-#%endif
 
 %patch1016 -p1
 
