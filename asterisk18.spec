@@ -1068,10 +1068,6 @@ if [ $1 -ge 1 ] ; then
     /bin/systemctl try-restart asterisk.service >/dev/null 2>&1 || :
 fi
 
-# Run these because the SysV package being removed won't do them
-/sbin/chkconfig --del asterisk >/dev/null 2>&1 || :
-/bin/systemctl try-restart asterisk.service >/dev/null 2>&1 || :
-
 %pre dahdi
 %{_sbindir}/usermod -a -G dahdi asterisk
 
