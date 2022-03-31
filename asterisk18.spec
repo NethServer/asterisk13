@@ -13,7 +13,6 @@
 %endif
 
 %global           astvarrundir     /run/asterisk
-%global           tmpfilesd        1
 
 %global           alsa       1
 %global           apidoc     0
@@ -51,7 +50,6 @@ Source1:          http://downloads.asterisk.org/pub/telephony/asterisk/releases/
 Source2:          asterisk.logrotate
 Source3:          menuselect.makedeps
 Source4:          menuselect.makeopts
-Source6:          asterisk-tmpfiles
 # GPG keyring with Asterisk developer signatures
 # Created by running:
 #gpg2 --no-default-keyring --keyring ./asterisk-gpgkeys.gpg \
@@ -990,11 +988,6 @@ find doc/api/html -name \*.map -size 0 -delete
 # copy the alembic scripts
 cp -rp contrib/ast-db-manage %{buildroot}%{_datadir}/asterisk/ast-db-manage
 
-%if %{tmpfilesd}
-install -D -p -m 0644 %{SOURCE6} %{buildroot}/usr/lib/tmpfiles.d/asterisk.conf
-mkdir -p %{buildroot}%{astvarrundir}
-%endif
-
 %if ! 0%{?mysql}
 rm -f %{buildroot}%{_sysconfdir}/asterisk/*_mysql.conf
 %endif
@@ -1090,12 +1083,6 @@ if [ $1 -ge 1 ] ; then
     # Package upgrade, not uninstall
     /bin/systemctl try-restart asterisk.service >/dev/null 2>&1 || :
 fi
-
-%triggerun -- asterisk < 1.8.2.4-2
-# Save the current service runlevel info
-# User must manually run systemd-sysv-convert --apply asterisk
-# to migrate them to systemd targets
-/usr/bin/systemd-sysv-convert --save asterisk >/dev/null 2>&1 ||:
 
 # Run these because the SysV package being removed won't do them
 /sbin/chkconfig --del asterisk >/dev/null 2>&1 || :
@@ -1558,9 +1545,6 @@ fi
 %attr(0750,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/uploads
 %attr(0750,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/voicemail
 
-%if %{tmpfilesd}
-%attr(0644,root,root) /usr/lib/tmpfiles.d/asterisk.conf
-%endif
 %attr(0755,asterisk,asterisk) %dir %{astvarrundir}
 %{_datarootdir}/asterisk/scripts/
 
