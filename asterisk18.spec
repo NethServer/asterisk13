@@ -253,23 +253,21 @@ inexpensive hardware.
 %package core
 Summary: Asterisk core package without any "extras".
 Group: Utilities/System
-#Provides: %{name}-core
-#Provides: %{name}-speex
-Provides:  asterisk13-speex = 2:13.38.3-1
-Obsoletes: asterisk13-speex <= 2:13.38.3-2
-Provides:  asterisk13-resample = 2:13.38.3-1
-Obsoletes: asterisk13-resample <= 2:13.38.3-2
-Provides:  asterisk13-addons-core = 2:13.38.3-1
-Obsoletes: asterisk13-addons-core <= 2:13.38.3-2
-Provides:  asterisk13-ogg = 2:13.38.3-1
-Obsoletes: asterisk13-ogg <= 2:13.38.3-2
+Provides: asterisk13-speex = 13.38.3-2
+Obsoletes: asterisk13-speex < 13.38.3-2
+Provides: asterisk13-resample = 13.38.3-2
+Obsoletes: asterisk13-resample < 13.38.3-2
+Provides: asterisk13-addons-core = 13.38.3-2
+Obsoletes: asterisk13-addons-core < 13.38.3-2
+Provides: asterisk13-ogg = 13.38.3-2
+Obsoletes: asterisk13-ogg < 13.38.3-2
 Conflicts: asterisk14-core
 Conflicts: asterisk16-core
 Conflicts: asterisk10-core
 Conflicts: asterisk11-core
 Conflicts: asterisk12-core
-Provides:  asterisk13-core = 2:13.38.1-1
-Obsoletes: asterisk13-core <= 2:13.38.3-2
+Provides: asterisk13-core = 13.38.3-2
+Obsoletes: asterisk13-core < 13.38.3-2
 Requires: openssl
 Requires: libxml2
 Requires: libsrtp23
@@ -316,8 +314,8 @@ BuildRequires: bluez-libs-devel
 Requires: bluez-libs
 Requires: %{name}-core = %{version}-%{release}
 Provides: %{name}-addons-bluetooth
-Provides: asterisk13-addons-bluetooth = 2:13.38.1-1
-Obsoletes: asterisk13-addons-bluetooth <= 2:13.38.3-2
+Provides: asterisk13-addons-bluetooth = 13.38.3-2
+Obsoletes: asterisk13-addons-bluetooth < 13.38.3-2
 
 %description addons-bluetooth
 bluetooth modules for Asterisk
@@ -332,8 +330,8 @@ Requires: %{name}-core = %{version}-%{release}
 Requires: mysql
 Requires: %{name}-addons-core = %{version}-%{release}
 Provides: %{name}-addons-mysql
-Provides: asterisk13-addons-mysql = 2:13.38.1-1
-Obsoletes: asterisk13-addons-mysql <= 2:13.38.3-2
+Provides: asterisk13-addons-mysql = 13.38.3-2
+Obsoletes: asterisk13-addons-mysql < 13.38.3-2
 
 %description addons-mysql
 Applications for Asterisk that use MySQL.
@@ -345,8 +343,8 @@ Summary: H.323 channel for Asterisk using the Objective Systems Open H.323 for C
 Group: Utilities/System
 Requires: %{name}-core = %{version}-%{release}
 Provides: %{name}-addons-ooh323
-Provides: asterisk13-addons-ooh = 2:13.38.1-1323
-Obsoletes: asterisk13-addons-ooh <= 2:13.38.3-2323
+Provides: asterisk13-addons-ooh = 13.38.3-2323
+Obsoletes: asterisk13-addons-ooh < 13.38.3-2323
 
 %description addons-ooh323
 H.323 channel for Asterisk using the Objective Systems Open H.323 for C library.
@@ -373,8 +371,8 @@ Group: Utilities/System
 BuildRequires: alsa-lib-devel
 Requires: alsa-lib
 Requires: %{name}-core = %{version}-%{release}
-Provides: asterisk13-alsa = 2:13.38.1-1
-Obsoletes: asterisk13-alsa <= 2:13.38.3-2
+Provides: asterisk13-alsa = 13.38.3-2
+Obsoletes: asterisk13-alsa < 13.38.3-2
 
 %description alsa
 Alsa channel driver for Asterisk
@@ -400,8 +398,8 @@ Calendar applications for Asterisk.
 Summary: Basic configuration files for Asterisk
 Group: Utilities/System
 Requires: %{name}-core = %{version}
-Provides: asterisk13-configs = 2:13.38.1-1
-Obsoletes: asterisk13-configs <= 2:13.38.3-2
+Provides: asterisk13-configs = 13.38.3-2
+Obsoletes: asterisk13-configs < 13.38.3-2
 
 %description configs
 The sample configuration files for Asterisk
@@ -429,8 +427,8 @@ Requires: dahdi-tools >= 2.0.0
 Requires: libtonezone
 Requires(pre): %{_sbindir}/usermod
 Provides: asterisk-zaptel = %{version}-%{release}
-Provides: asterisk13-dahdi = 2:13.38.1-1
-Obsoletes: asterisk13-dahdi <= 2:13.38.3-2
+Provides: asterisk13-dahdi = 13.38.3-2
+Obsoletes: asterisk13-dahdi < 13.38.3-2
 
 %description dahdi
 Modules for Asterisk that use DAHDI.
@@ -438,8 +436,8 @@ Modules for Asterisk that use DAHDI.
 %package devel
 Summary: Development files for Asterisk
 Requires: %{name}-core = %{version}-%{release}
-Provides: asterisk13-devel = 2:13.38.1-1
-Obsoletes: asterisk13-devel <= 2:13.38.3-2
+Provides: asterisk13-devel = 13.38.3-2
+Obsoletes: asterisk13-devel < 13.38.3-2
 
 %description devel
 Development files for Asterisk.
@@ -448,8 +446,8 @@ Development files for Asterisk.
 Summary: The Documentation files for Asterisk
 Group: Development/Libraries
 Requires: %{name}-core = %{version}-%{release}
-Provides: asterisk13-doc = 2:13.38.1-1
-Obsoletes: asterisk13-doc <= 2:13.38.3-2
+Provides: asterisk13-doc = 13.38.3-2
+Obsoletes: asterisk13-doc < 13.38.3-2
 
 %description doc
 API documentation for Asterisk.
@@ -530,8 +528,8 @@ MiniVM application for Asterisk.
 Summary: mISDN channel for Asterisk
 Requires: %{name}-core = %{version}-%{release}
 Requires(pre): %{_sbindir}/usermod
-Provides: asterisk13-misdn = 2:13.38.1-1
-Obsoletes: asterisk13-misdn <= 2:13.38.3-2
+Provides: asterisk13-misdn = 13.38.3-2
+Obsoletes: asterisk13-misdn < 13.38.3-2
 
 %description misdn
 mISDN channel for Asterisk.
@@ -550,8 +548,8 @@ Support for developing external voicemail applications
 %package odbc
 Summary: Applications for Asterisk that use ODBC (except voicemail)
 Requires: %{name}-core = %{version}-%{release}
-Provides: asterisk13-odbc = 2:13.38.1-1
-Obsoletes: asterisk13-odbc <= 2:13.38.3-2
+Provides: asterisk13-odbc = 13.38.3-2
+Obsoletes: asterisk13-odbc < 13.38.3-2
 
 %description odbc
 Applications for Asterisk that use ODBC (except voicemail)
@@ -568,8 +566,8 @@ Modules for Asterisk that use OSS sound drivers.
 %package pgsql
 Summary: Applications for Asterisk that use PostgreSQL
 Requires: %{name}-core = %{version}-%{release}
-Provides: asterisk13-pgsql = 2:13.38.1-1
-Obsoletes: asterisk13-pgsql <= 2:13.38.3-2
+Provides: asterisk13-pgsql = 13.38.3-2
+Obsoletes: asterisk13-pgsql < 13.38.3-2
 
 %description pgsql
 Applications for Asterisk that use PostgreSQL.
@@ -613,8 +611,8 @@ Summary: Module that enables SNMP monitoring of Asterisk
 Requires: %{name}-core = %{version}-%{release}
 # This subpackage depends on perl-libs, this Requires tracks versioning.
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
-Provides: asterisk13-snmp = 2:13.38.1-1
-Obsoletes: asterisk13-snmp <= 2:13.38.3-2
+Provides: asterisk13-snmp = 13.38.3-2
+Obsoletes: asterisk13-snmp < 13.38.3-2
 
 %description snmp
 Module that enables SNMP monitoring of Asterisk.
@@ -623,8 +621,8 @@ Module that enables SNMP monitoring of Asterisk.
 %package sqlite3
 Summary: Sqlite modules for Asterisk
 Requires: %{name}-core = %{version}-%{release}
-Provides: asterisk13-sqlite = 2:13.38.1-13
-Obsoletes: asterisk13-sqlite <= 2:13.38.3-23
+Provides: asterisk13-sqlite = 13.38.3-23
+Obsoletes: asterisk13-sqlite < 13.38.3-23
 
 %description sqlite3
 Sqlite modules for Asterisk.
@@ -632,8 +630,8 @@ Sqlite modules for Asterisk.
 %package tds
 Summary: Modules for Asterisk that use FreeTDS
 Requires: %{name}-core = %{version}-%{release}
-Provides: asterisk13-tds = 2:13.38.1-1
-Obsoletes: asterisk13-tds <= 2:13.38.3-2
+Provides: asterisk13-tds = 13.38.3-2
+Obsoletes: asterisk13-tds < 13.38.3-2
 
 %description tds
 Modules for Asterisk that use FreeTDS.
@@ -652,8 +650,8 @@ Requires: %{name}-voicemail-implementation = %{version}-%{release}
 Requires: /usr/bin/sox
 Requires: /usr/sbin/sendmail
 Conflicts: asterisk-mwi-external <= %{version}-%{release}
-Provides: asterisk13-voicemail = 2:13.38.1-1
-Obsoletes: asterisk13-voicemail <= 2:13.38.3-2
+Provides: asterisk13-voicemail = 13.38.3-2
+Obsoletes: asterisk13-voicemail < 13.38.3-2
 
 %description voicemail
 Common Voicemail Modules for Asterisk.
@@ -666,8 +664,8 @@ Requires: %{name}-voicemail = %{version}-%{release}
 Provides: %{name}-voicemail-implementation = %{version}-%{release}
 Conflicts: %{name}-voicemail-odbcstorage <= %{version}-%{release}
 Conflicts: %{name}-voicemail-plain <= %{version}-%{release}
-Provides: asterisk13-voicemail-imapstorage = 2:13.38.1-1
-Obsoletes: asterisk13-voicemail-imapstorage <= 2:13.38.3-2
+Provides: asterisk13-voicemail-imapstorage = 13.38.3-2
+Obsoletes: asterisk13-voicemail-imapstorage < 13.38.3-2
 
 %description voicemail-imapstorage
 Voicemail implementation for Asterisk that stores voicemail on an IMAP
@@ -681,8 +679,8 @@ Requires: %{name}-voicemail = %{version}-%{release}
 Provides: %{name}-voicemail-implementation = %{version}-%{release}
 Conflicts: %{name}-voicemail-imapstorage <= %{version}-%{release}
 Conflicts: %{name}-voicemail-plain <= %{version}-%{release}
-Provides: asterisk13-voicemail-odbcstorage = 2:13.38.1-1
-Obsoletes: asterisk13-voicemail-odbcstorage <= 2:13.38.3-2
+Provides: asterisk13-voicemail-odbcstorage = 13.38.3-2
+Obsoletes: asterisk13-voicemail-odbcstorage < 13.38.3-2
 
 %description voicemail-odbcstorage
 Voicemail implementation for Asterisk that uses ODBC to store
