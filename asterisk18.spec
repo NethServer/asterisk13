@@ -74,6 +74,7 @@ Source11:         http://downloads.digium.com/pub/telephony/codec_opus/asterisk-
 Source12:         http://downloads.digium.com/pub/telephony/codec_silk/asterisk-18.0/x86-64/codec_silk-18.0_current-x86_64.tar.gz
 Source13:         http://downloads.digium.com/pub/telephony/codec_siren7/asterisk-18.0/x86-64/codec_siren7-18.0_current-x86_64.tar.gz
 Source14:         http://downloads.digium.com/pub/telephony/codec_siren14/asterisk-18.0/x86-64/codec_siren14-18.0_current-x86_64.tar.gz
+Source15:         modules.conf
 
 Patch1016: asterisk-18-mp3.patch
 
@@ -1011,6 +1012,7 @@ mkdir -p %{buildroot}/%{_sysconfdir}/samples-%{version}
 %{__cp} -v %{buildroot}/%{_sysconfdir}/asterisk/samples-%{version}/skinny.conf		%{buildroot}/%{_sysconfdir}/asterisk
 %{__cp} -v %{buildroot}/%{_sysconfdir}/asterisk/samples-%{version}/smdi.conf		%{buildroot}/%{_sysconfdir}/asterisk
 %{__cp} -v %{buildroot}/%{_sysconfdir}/asterisk/samples-%{version}/unistim.conf		%{buildroot}/%{_sysconfdir}/asterisk
+%{__cp} -v %{S:15} %{buildroot}/%{_sysconfdir}/asterisk
 %endif
 
 # Additional codecs
@@ -1463,6 +1465,9 @@ fi
 %attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/vpb.conf
 
 %config(noreplace) %{_sysconfdir}/logrotate.d/asterisk
+%if 0%{?freepbx}
+%config(noreplace) %{_sysconfdir}/asterisk/modules.conf
+%endif
 
 %dir %{_datadir}/asterisk
 %dir %{_datadir}/asterisk/agi-bin
