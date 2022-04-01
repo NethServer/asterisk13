@@ -82,9 +82,6 @@ Patch2: lazymembers.patch
 # directly to pjproject before the build against it
 Provides:         bundled(pjproject) = %{pjsip_version}
 
-# Does not build on s390x: https://bugzilla.redhat.com/show_bug.cgi?id=1465162
-#ExcludeArch:      s390x
-
 BuildRequires:    autoconf
 BuildRequires:    automake
 BuildRequires:    gcc
@@ -129,7 +126,6 @@ BuildRequires:    speex-devel >= 1.2
 %if (0%{?fedora} > 21 || 0%{?rhel} > 7)
 BuildRequires:    speexdsp-devel >= 1.2
 %endif
-
 
 # for format_ogg_vorbis
 BuildRequires:    libogg-devel
@@ -238,7 +234,6 @@ Requires(post):   systemd-units
 Requires(post):   systemd-sysv
 Requires(preun):  systemd-units
 Requires(postun): systemd-units
-
 
 # chan_phone headers no longer in kernel headers
 Obsoletes:        asterisk-phone < %{version}
@@ -820,9 +815,6 @@ export ASTCFLAGS=" "
 
 sed -i '1s/env python/python3/' contrib/scripts/refcounter.py
 
-#aclocal -I autoconf --force
-#autoconf --force
-#autoheader --force
 ./bootstrap.sh
 
 pushd menuselect
@@ -849,10 +841,6 @@ popd
 
 %{__perl} -pi -e'/^MENUSELECT_ADDONS=/ and s,format_mp3,,' menuselect.makeopts
 %{__perl} -pi -e'/^MENUSELECT_APPS=/ and s,app_mp3,,' menuselect.makeopts
-#%{__perl} -pi -e'/^MENUSELECT_CHANNELS=/ and s,chan_misdn,,' menuselect.makeopts
-#%{__perl} -pi -e'/^MENUSELECT_CODECS=/ and s,codec_ilbc,,' menuselect.makeopts
-#%{__perl} -pi -e'/^MENUSELECT_FORMATS=/ and s,format_ilbc,,' menuselect.makeopts
-
 
 # Build with plain voicemail and directory
 echo "### Building with plain voicemail and directory"
@@ -875,7 +863,6 @@ mv apps/app_directory.so apps/app_directory_imap.so
 %endif
 
 # Now build with ODBC storage for voicemail and directory
-
 sed -i -e 's/^MENUSELECT_OPTS_app_voicemail=.*$/MENUSELECT_OPTS_app_voicemail=ODBC_STORAGE/' menuselect.makeopts
 echo "### Building with ODBC voicemail and directory"
 %make_build %{makeargs}
@@ -932,7 +919,6 @@ install -D -p -m 0755 apps/app_directory_plain.so %{buildroot}%{_libdir}/asteris
 install -D -p -m 0755 apps/app_voicemail_plain.so %{buildroot}%{_libdir}/asterisk/modules/app_voicemail_plain.so
 
 # create some directories that need to be packaged
-#mkdir -p %{buildroot}%{_datadir}/asterisk/moh
 mkdir -p %{buildroot}%{_datadir}/asterisk/sounds
 mkdir -p %{buildroot}%{_datadir}/asterisk/ast-db-manage
 mkdir -p %{buildroot}%{_localstatedir}/lib/asterisk
@@ -942,20 +928,16 @@ mkdir -p %{buildroot}%{_localstatedir}/spool/asterisk/monitor
 mkdir -p %{buildroot}%{_localstatedir}/spool/asterisk/outgoing
 mkdir -p %{buildroot}%{_localstatedir}/spool/asterisk/uploads
 
-# We're not going to package any of the sample AGI scripts
-#rm -f %{buildroot}%{_datadir}/asterisk/agi-bin/*
-
 # Don't package the sample voicemail user
 rm -rf %{buildroot}%{_localstatedir}/spool/asterisk/voicemail/default
 
 # Don't package example phone provision configs
-#rm -rf %{buildroot}%{_datadir}/asterisk/phoneprov/*
+rm -rf %{buildroot}%{_datadir}/asterisk/phoneprov/*
 
 # these are compiled with -O0 and thus include unfortified code.
 rm -rf %{buildroot}%{_sbindir}/hashtest
 rm -rf %{buildroot}%{_sbindir}/hashtest2
 
-#
 rm -rf %{buildroot}%{_sysconfdir}/asterisk/app_skel.conf
 rm -rf %{buildroot}%{_sysconfdir}/asterisk/config_test.conf
 rm -rf %{buildroot}%{_sysconfdir}/asterisk/test_sorcery.conf
@@ -1023,7 +1005,6 @@ mkdir -p %{buildroot}/%{_sysconfdir}/samples-%{version}
 #%{__cp} -v %{buildroot}/%{_sysconfdir}/asterisk/samples-%{version}/jingle.conf		%{buildroot}/%{_sysconfdir}/asterisk
 %{__cp} -v %{buildroot}/%{_sysconfdir}/asterisk/samples-%{version}/logger.conf		%{buildroot}/%{_sysconfdir}/asterisk
 %{__cp} -v %{buildroot}/%{_sysconfdir}/asterisk/samples-%{version}/mgcp.conf		%{buildroot}/%{_sysconfdir}/asterisk
-#%{__cp} -v %{buildroot}/%{_sysconfdir}/asterisk/samples-%{version}/modules.conf	%{buildroot}/%{_sysconfdir}/asterisk
 %{__cp} -v %{buildroot}/%{_sysconfdir}/asterisk/samples-%{version}/phoneprov.conf	%{buildroot}/%{_sysconfdir}/asterisk
 #%{__cp} -v %{buildroot}/%{_sysconfdir}/asterisk/samples-%{version}/sip.conf		%{buildroot}/%{_sysconfdir}/asterisk
 #%{__cp} -v %{buildroot}/%{_sysconfdir}/asterisk/samples-%{version}/pjsip.conf		%{buildroot}/%{_sysconfdir}/asterisk
@@ -1126,15 +1107,12 @@ fi
 %{_libdir}/asterisk/modules/app_privacy.so
 %{_libdir}/asterisk/modules/app_queue.so
 %{_libdir}/asterisk/modules/app_readexten.so
-#%%{_libdir}/asterisk/modules/app_readfile.so
 %{_libdir}/asterisk/modules/app_read.so
 %{_libdir}/asterisk/modules/app_record.so
 %{_libdir}/asterisk/modules/app_saycounted.so
-#%%{_libdir}/asterisk/modules/app_saycountpl.so
 %{_libdir}/asterisk/modules/app_sayunixtime.so
 %{_libdir}/asterisk/modules/app_senddtmf.so
 %{_libdir}/asterisk/modules/app_sendtext.so
-#%%{_libdir}/asterisk/modules/app_setcallerid.so
 %{_libdir}/asterisk/modules/app_sms.so
 %{_libdir}/asterisk/modules/app_softhangup.so
 %{_libdir}/asterisk/modules/app_speech_utils.so
@@ -1168,7 +1146,6 @@ fi
 %{_libdir}/asterisk/modules/cel_manager.so
 %{_libdir}/asterisk/modules/chan_audiosocket.so
 %{_libdir}/asterisk/modules/chan_bridge_media.so
-#%%{_libdir}/asterisk/modules/chan_multicast_rtp.so
 %{_libdir}/asterisk/modules/chan_rtp.so
 %{_libdir}/asterisk/modules/codec_adpcm.so
 %{_libdir}/asterisk/modules/codec_alaw.so
@@ -1194,8 +1171,6 @@ fi
 %{_libdir}/asterisk/modules/format_h263.so
 %{_libdir}/asterisk/modules/format_h264.so
 %{_libdir}/asterisk/modules/format_ilbc.so
-#%%{_libdir}/asterisk/modules/format_jpeg.so
-#%{_libdir}/asterisk/modules/
 
 %{_libdir}/asterisk/modules/format_mp3.so
 %{_libdir}/asterisk/modules/format_ogg_speex.so
@@ -1208,7 +1183,6 @@ fi
 %{_libdir}/asterisk/modules/format_wav_gsm.so
 %{_libdir}/asterisk/modules/format_wav.so
 %{_libdir}/asterisk/modules/func_aes.so
-#%%{_libdir}/asterisk/modules/func_audiohookinherit.so
 %{_libdir}/asterisk/modules/func_base64.so
 %{_libdir}/asterisk/modules/func_blacklist.so
 %{_libdir}/asterisk/modules/func_callcompletion.so
@@ -1305,7 +1279,6 @@ fi
 %{_libdir}/asterisk/modules/res_mwi_devstate.so
 %{_libdir}/asterisk/modules/res_parking.so
 %{_libdir}/asterisk/modules/res_phoneprov.so
-# res_pjproject is required by res_rtp_asterisk
 %{_libdir}/asterisk/modules/res_pjproject.so
 %{_libdir}/asterisk/modules/res_prometheus.so
 %{_libdir}/asterisk/modules/res_realtime.so
@@ -1313,7 +1286,6 @@ fi
 %{_libdir}/asterisk/modules/res_resolver_unbound.so
 %{_libdir}/asterisk/modules/res_rtp_asterisk.so
 %{_libdir}/asterisk/modules/res_rtp_multicast.so
-#%%{_libdir}/asterisk/modules/res_sdp_translator_pjmedia.so
 %{_libdir}/asterisk/modules/res_security_log.so
 %{_libdir}/asterisk/modules/res_smdi.so
 %{_libdir}/asterisk/modules/res_sorcery_astdb.so
@@ -1351,11 +1323,8 @@ fi
 %{_sbindir}/astman
 %{_sbindir}/astversion
 %{_sbindir}/autosupport
-#%%{_sbindir}/check_expr
-#%%{_sbindir}/check_expr2
 %{_sbindir}/muted
 %{_sbindir}/rasterisk
-#%%{_sbindir}/refcounter
 %{_sbindir}/smsq
 %{_sbindir}/stereorize
 %{_sbindir}/streamplayer
@@ -1394,7 +1363,6 @@ fi
 %{_libdir}/asterisk/modules/res_pjsip_history.so
 %{_libdir}/asterisk/modules/res_pjsip_logger.so
 %{_libdir}/asterisk/modules/res_pjsip_messaging.so
-#%%{_libdir}/asterisk/modules/res_pjsip_multihomed.so
 %{_libdir}/asterisk/modules/res_pjsip_mwi.so
 %{_libdir}/asterisk/modules/res_pjsip_mwi_body_generator.so
 %{_libdir}/asterisk/modules/res_pjsip_nat.so
@@ -1412,7 +1380,6 @@ fi
 %{_libdir}/asterisk/modules/res_pjsip_pubsub.so
 %{_libdir}/asterisk/modules/res_pjsip_refer.so
 %{_libdir}/asterisk/modules/res_pjsip_registrar.so
-#%%{_libdir}/asterisk/modules/res_pjsip_registrar_expire.so
 %{_libdir}/asterisk/modules/res_pjsip_rfc3326.so
 %{_libdir}/asterisk/modules/res_pjsip_sdp_rtp.so
 %{_libdir}/asterisk/modules/res_pjsip_send_to_voicemail.so
@@ -1420,7 +1387,6 @@ fi
 %{_libdir}/asterisk/modules/res_pjsip_sips_contact.so
 %{_libdir}/asterisk/modules/res_pjsip_stir_shaken.so
 %{_libdir}/asterisk/modules/res_pjsip_t38.so
-#%%{_libdir}/asterisk/modules/res_pjsip_transport_management.so
 %{_libdir}/asterisk/modules/res_pjsip_transport_websocket.so
 %{_libdir}/asterisk/modules/res_pjsip_xpidf_body_generator.so
 
@@ -1501,13 +1467,11 @@ fi
 %dir %{_datadir}/asterisk
 %dir %{_datadir}/asterisk/agi-bin
 %{_datadir}/asterisk/documentation
-#%{_datadir}/asterisk/documentation/thirdparty/codec_opus_config-en_US.xml
 %{_datadir}/asterisk/images
 %attr(0750,asterisk,asterisk) %{_datadir}/asterisk/keys
 %{_datadir}/asterisk/phoneprov
 %{_datadir}/asterisk/static-http
 %{_datadir}/asterisk/rest-api
-#%dir %{_datadir}/asterisk/moh
 %dir %{_datadir}/asterisk/sounds
 
 %attr(0750,asterisk,asterisk) %dir %{_localstatedir}/lib/asterisk
@@ -1751,7 +1715,6 @@ fi
 #doc doc/digium-mib.txt
 #doc doc/snmp.txt
 %attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_snmp.conf
-#%%{_datadir}/snmp/mibs/ASTERISK-MIB.txt
 #%%{_datadir}/snmp/mibs/DIGIUM-MIB.txt
 %{_libdir}/asterisk/modules/res_snmp.so
 %endif
