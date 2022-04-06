@@ -1393,8 +1393,8 @@ fi
 %{_libdir}/asterisk/modules/res_pjsip_xpidf_body_generator.so
 
 # legacy sip
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/sip.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/sip_notify.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/sip.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/sip_notify.conf
 %{_libdir}/asterisk/modules/chan_sip.so
 
 %{_mandir}/man8/astdb2bdb.8*
@@ -1404,80 +1404,80 @@ fi
 %{_mandir}/man8/autosupport.8*
 %{_mandir}/man8/safe_asterisk.8*
 
-%attr(0750,asterisk,asterisk) %dir %{_sysconfdir}/asterisk
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/acl.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/adsi.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/agents.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/alarmreceiver.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/amd.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/ari.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/ast_debug_tools.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/asterisk.adsi
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/asterisk.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/ccss.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_beanstalkd.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_custom.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_manager.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_syslog.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_beanstalkd.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_custom.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cli.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cli_aliases.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cli_permissions.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/codecs.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/confbridge.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/dnsmgr.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/dsp.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/dundi.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/enum.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/extconfig.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/extensions.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/features.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/followme.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/http.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/indications.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/logger.conf
-%attr(0600,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/manager.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/modules.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/musiconhold.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/muted.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/osp.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/phoneprov.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/prometheus.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/queuerules.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/queues.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_parking.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_stun_monitor.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/resolver_unbound.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/rtp.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/say.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/sla.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/smdi.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/sorcery.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/stasis.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/statsd.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/stir_shaken.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/telcordia-1.adsi
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/udptl.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/users.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/vpb.conf
+%attr(0775,asterisk,asterisk) %dir %{_sysconfdir}/asterisk
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/acl.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/adsi.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/agents.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/alarmreceiver.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/amd.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/ari.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/ast_debug_tools.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/asterisk.adsi
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/asterisk.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/ccss.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_beanstalkd.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_custom.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_manager.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_syslog.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_beanstalkd.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_custom.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cli.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cli_aliases.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cli_permissions.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/codecs.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/confbridge.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/dnsmgr.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/dsp.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/dundi.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/enum.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/extconfig.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/extensions.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/features.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/followme.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/http.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/indications.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/logger.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/manager.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/modules.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/musiconhold.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/muted.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/osp.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/phoneprov.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/prometheus.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/queuerules.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/queues.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_parking.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_stun_monitor.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/resolver_unbound.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/rtp.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/say.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/sla.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/smdi.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/sorcery.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/stasis.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/statsd.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/stir_shaken.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/telcordia-1.adsi
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/udptl.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/users.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/vpb.conf
 
 %config(noreplace) %{_sysconfdir}/logrotate.d/asterisk
 %if 0%{?freepbx}
-%config(noreplace) %{_sysconfdir}/asterisk/modules.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/modules.conf
 %endif
 
 %dir %{_datadir}/asterisk
-%dir %{_datadir}/asterisk/agi-bin
+%attr(0775,asterisk,asterisk) %dir %{_datadir}/asterisk/agi-bin
 %{_datadir}/asterisk/documentation
 %{_datadir}/asterisk/images
 %attr(0750,asterisk,asterisk) %{_datadir}/asterisk/keys
 %{_datadir}/asterisk/phoneprov
 %{_datadir}/asterisk/static-http
 %{_datadir}/asterisk/rest-api
-%dir %{_datadir}/asterisk/sounds
+%attr(0775,asterisk,asterisk) %dir %{_datadir}/asterisk/sounds
 
 %attr(0750,asterisk,asterisk) %dir %{_localstatedir}/lib/asterisk
 
@@ -1485,14 +1485,14 @@ fi
 %attr(0750,asterisk,asterisk) %dir %{_localstatedir}/log/asterisk/cdr-csv
 %attr(0750,asterisk,asterisk) %dir %{_localstatedir}/log/asterisk/cdr-custom
 
-%attr(0750,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk
-%attr(0770,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/monitor
-%attr(0770,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/outgoing
-%attr(0750,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/tmp
-%attr(0750,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/uploads
-%attr(0750,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/voicemail
+%attr(0775,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk
+%attr(0775,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/monitor
+%attr(0775,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/outgoing
+%attr(0775,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/tmp
+%attr(0775,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/uploads
+%attr(0775,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/voicemail
 
-%attr(0755,asterisk,asterisk) %dir %{astvarrundir}
+%attr(0775,asterisk,asterisk) %dir %{astvarrundir}
 %{_datarootdir}/asterisk/scripts/
 
 %files addons
