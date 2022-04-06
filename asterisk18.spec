@@ -1332,17 +1332,17 @@ fi
 %{_sbindir}/streamplayer
 
 # iax2
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/iax.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/iaxprov.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/iax.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/iaxprov.conf
 %dir %{_datadir}/asterisk/firmware
 %dir %{_datadir}/asterisk/firmware/iax
 %{_libdir}/asterisk/modules/chan_iax2.so
 
 # pjsip
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/pjsip.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/pjproject.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/pjsip_notify.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/pjsip_wizard.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/pjsip.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/pjproject.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/pjsip_notify.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/pjsip_wizard.conf
 %{_libdir}/asterisk/modules/chan_pjsip.so
 %{_libdir}/asterisk/modules/func_pjsip_aor.so
 %{_libdir}/asterisk/modules/func_pjsip_contact.so
@@ -1500,7 +1500,7 @@ fi
 
 %if 0%{bluetooth}
 %files addons-bluetooth
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/chan_mobile.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/chan_mobile.conf
 %{_libdir}/asterisk/modules/chan_mobile.so
 %endif
 
@@ -1509,9 +1509,9 @@ fi
 
 %if 0%{mysql}
 %files addons-mysql
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/app_mysql.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_mysql.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_config_mysql.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/app_mysql.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_mysql.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_config_mysql.conf
 %doc contrib/realtime/mysql/*.sql
 %{_libdir}/asterisk/modules/app_mysql.so
 %{_libdir}/asterisk/modules/cdr_mysql.so
@@ -1520,12 +1520,12 @@ fi
 
 %if 0%{?ooh323}
 %files addons-ooh323
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/ooh323.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/ooh323.conf
 %{_libdir}/asterisk/modules/chan_ooh323.so
 %endif
 
 %files ael
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/extensions.ael
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/extensions.ael
 %{_sbindir}/aelparse
 #%%{_sbindir}/conf2ael
 %{_libdir}/asterisk/modules/pbx_ael.so
@@ -1535,7 +1535,7 @@ fi
 %{_datadir}/asterisk/ast-db-manage/
 
 %files alsa
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/alsa.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/alsa.conf
 %{_libdir}/asterisk/modules/chan_alsa.so
 
 %if %{?apidoc}
@@ -1544,7 +1544,7 @@ fi
 %endif
 
 %files calendar
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/calendar.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/calendar.conf
 %{_libdir}/asterisk/modules/res_calendar.so
 %{_libdir}/asterisk/modules/res_calendar_caldav.so
 %{_libdir}/asterisk/modules/res_calendar_ews.so
@@ -1564,22 +1564,22 @@ fi
 
 %if 0%{?corosync}
 %files corosync
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_corosync.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_corosync.conf
 %{_libdir}/asterisk/modules/res_corosync.so
 %endif
 
 %files curl
 %doc contrib/scripts/dbsep.cgi
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/dbsep.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_curl.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/dbsep.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_curl.conf
 %{_libdir}/asterisk/modules/func_curl.so
 %{_libdir}/asterisk/modules/res_config_curl.so
 %{_libdir}/asterisk/modules/res_curl.so
 
 %files dahdi
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/meetme.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/chan_dahdi.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/ss7.timers
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/meetme.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/chan_dahdi.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/ss7.timers
 %{_libdir}/asterisk/modules/app_flash.so
 %if 0%{?meetme} 
 %{_libdir}/asterisk/modules/app_meetme.so
@@ -1604,17 +1604,17 @@ fi
 
 
 %files fax
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_fax.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_fax.conf
 %{_libdir}/asterisk/modules/res_fax.so
 %{_libdir}/asterisk/modules/res_fax_spandsp.so
 
 %files festival
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/festival.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/festival.conf
 %attr(0750,asterisk,asterisk) %dir %{_localstatedir}/spool/asterisk/festival
 %{_libdir}/asterisk/modules/app_festival.so
 
 %files hep
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/hep.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/hep.conf
 %{_libdir}/asterisk/modules/res_hep.so
 %{_libdir}/asterisk/modules/res_hep_rtcp.so
 %{_libdir}/asterisk/modules/res_hep_pjsip.so
@@ -1633,28 +1633,28 @@ fi
 %if 0%{?ldap}
 %files ldap
 #doc doc/ldap.txt
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_ldap.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_ldap.conf
 %{_libdir}/asterisk/modules/res_config_ldap.so
 %endif
 
 %files lua
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/extensions.lua
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/extensions.lua
 %{_libdir}/asterisk/modules/pbx_lua.so
 
 %files mgcp
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/mgcp.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_pktccops.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/mgcp.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_pktccops.conf
 %{_libdir}/asterisk/modules/chan_mgcp.so
 %{_libdir}/asterisk/modules/res_pktccops.so
 
 %files minivm
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/extensions_minivm.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/minivm.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/extensions_minivm.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/minivm.conf
 %{_libdir}/asterisk/modules/app_minivm.so
 
 %if 0%{misdn}
 %files misdn
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/misdn.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/misdn.conf
 %{_libdir}/asterisk/modules/chan_misdn.so
 %endif
 
@@ -1665,11 +1665,11 @@ fi
 
 %if 0%{odbc}
 %files odbc
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_adaptive_odbc.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_odbc.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_odbc.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/func_odbc.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_odbc.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_adaptive_odbc.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_odbc.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_odbc.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/func_odbc.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_odbc.conf
 %{_libdir}/asterisk/modules/cdr_adaptive_odbc.so
 %{_libdir}/asterisk/modules/cdr_odbc.so
 %{_libdir}/asterisk/modules/cel_odbc.so
@@ -1680,14 +1680,14 @@ fi
 %endif
 
 %files oss
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/oss.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/oss.conf
 %{_libdir}/asterisk/modules/chan_oss.so
 
 %if 0%{postgresql}
 %files pgsql
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_pgsql.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_pgsql.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_pgsql.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_pgsql.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_pgsql.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_pgsql.conf
 %doc contrib/realtime/postgresql/*.sql
 %{_libdir}/asterisk/modules/cdr_pgsql.so
 %{_libdir}/asterisk/modules/cel_pgsql.so
@@ -1696,12 +1696,12 @@ fi
 
 %if 0%{phone}
 %files phone
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/phone.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/phone.conf
 %{_libdir}/asterisk/modules/chan_phone.so
 %endif
 
 %files portaudio
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/console.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/console.conf
 %{_libdir}/asterisk/modules/chan_console.so
 
 %if 0%{radius}
@@ -1711,7 +1711,7 @@ fi
 %endif
 
 %files skinny
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/skinny.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/skinny.conf
 %{_libdir}/asterisk/modules/chan_skinny.so
 
 %if 0%{snmp}
@@ -1719,32 +1719,32 @@ fi
 #doc doc/asterisk-mib.txt
 #doc doc/digium-mib.txt
 #doc doc/snmp.txt
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_snmp.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_snmp.conf
 #%%{_datadir}/snmp/mibs/DIGIUM-MIB.txt
 %{_libdir}/asterisk/modules/res_snmp.so
 %endif
 
 %files sqlite3
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_sqlite3_custom.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_sqlite3_custom.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_config_sqlite.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_config_sqlite3.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_sqlite3_custom.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_sqlite3_custom.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_config_sqlite.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_config_sqlite3.conf
 %{_libdir}/asterisk/modules/cdr_sqlite3_custom.so
 %{_libdir}/asterisk/modules/cel_sqlite3_custom.so
 %{_libdir}/asterisk/modules/res_config_sqlite3.so
 
 %files tds
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_tds.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_tds.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_tds.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_tds.conf
 %{_libdir}/asterisk/modules/cdr_tds.so
 %{_libdir}/asterisk/modules/cel_tds.so
 
 %files unistim
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/unistim.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/unistim.conf
 %{_libdir}/asterisk/modules/chan_unistim.so
 
 %files voicemail
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/voicemail.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/voicemail.conf
 %{_libdir}/asterisk/modules/func_vmcount.so
 
 %if 0%{?imap}
@@ -1764,8 +1764,8 @@ fi
 
 %if 0%{?xmpp}
 %files xmpp
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/motif.conf
-%attr(0640,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/xmpp.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/motif.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/xmpp.conf
 %{_libdir}/asterisk/modules/chan_motif.so
 %{_libdir}/asterisk/modules/res_xmpp.so
 %endif
