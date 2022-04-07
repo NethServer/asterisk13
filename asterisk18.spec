@@ -1469,7 +1469,7 @@ fi
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/modules.conf
 %endif
 
-%dir %{_datadir}/asterisk
+%attr(0775,asterisk,asterisk) %dir %{_datadir}/asterisk
 %attr(0775,asterisk,asterisk) %dir %{_datadir}/asterisk/agi-bin
 %{_datadir}/asterisk/documentation
 %{_datadir}/asterisk/images
