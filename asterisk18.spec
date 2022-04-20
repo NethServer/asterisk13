@@ -1479,8 +1479,6 @@ fi
 %{_datadir}/asterisk/rest-api
 %attr(0775,asterisk,asterisk) %dir %{_datadir}/asterisk/sounds
 
-%attr(0750,asterisk,asterisk) %dir %{_localstatedir}/lib/asterisk
-
 %attr(0750,asterisk,asterisk) %dir %{_localstatedir}/log/asterisk
 %attr(0750,asterisk,asterisk) %dir %{_localstatedir}/log/asterisk/cdr-csv
 %attr(0750,asterisk,asterisk) %dir %{_localstatedir}/log/asterisk/cdr-custom
