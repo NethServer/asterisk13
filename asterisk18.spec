@@ -41,7 +41,7 @@
 Summary:          The Open Source PBX
 Name:             asterisk18
 Version: 18.11.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 License:          GPLv2
 URL:              http://www.asterisk.org/
 Group: Utilities/System
@@ -1769,6 +1769,9 @@ fi
 %endif
 
 %changelog
+* Mon May 30 2022 Stefano Fancello <stefano.fancello@nethesis.it> - 18.11.1-2
+- Asterisk 18 package doesn't create asterisk user  - Bug NethServer/dev#6668
+
 * Thu May 26 2022 Stefano Fancello <stefano.fancello@nethesis.it> - 18.11.1-1
 - Update Asterisk to 18.x - nethesis/dev#6124
 - Change Asterisk version to 18 and total refactor
