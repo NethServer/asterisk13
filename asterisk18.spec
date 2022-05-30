@@ -1023,18 +1023,18 @@ tar xzvvf %{S:14} --strip-components=1
 %{__cp} *.so %{buildroot}/%{_libdir}/asterisk/modules/
 %{__cp} codec_opus_config-en_US.xml %{buildroot}/%{_datadir}/asterisk/documentation/thirdparty/
 
-%pre
+%pre core
 %{_sbindir}/groupadd -r asterisk &>/dev/null || :
 %{_sbindir}/useradd  -r -s /sbin/nologin -d /var/lib/asterisk -M \
                                -c 'Asterisk User' -g asterisk asterisk &>/dev/null || :
 
-%post
+%post core
 if [ $1 -eq 1 ] ; then
 	/bin/systemctl daemon-reload >/dev/null 2>&1 || :
 fi
 
 
-%preun
+%preun core
 if [ "$1" -eq "0" ]; then
 	# Package removal, not upgrade
 	/bin/systemctl --no-reload disable asterisk.service > /dev/null 2>&1 || :
@@ -1042,7 +1042,7 @@ if [ "$1" -eq "0" ]; then
 fi
 
 
-%postun
+%postun core
 /bin/systemctl daemon-reload >/dev/null 2>&1 || :
 if [ $1 -ge 1 ] ; then
     # Package upgrade, not uninstall
