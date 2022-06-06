@@ -1237,6 +1237,7 @@ fi
 %{_libdir}/asterisk/modules/pbx_spool.so
 %{_libdir}/asterisk/modules/res_adsi.so
 %{_libdir}/asterisk/modules/res_agi.so
+%{_libdir}/asterisk/modules/res_aeap.so
 %{_libdir}/asterisk/modules/res_ari.so
 %{_libdir}/asterisk/modules/res_ari_applications.so
 %{_libdir}/asterisk/modules/res_ari_asterisk.so
@@ -1296,6 +1297,7 @@ fi
 %{_libdir}/asterisk/modules/res_sorcery_memory_cache.so
 %{_libdir}/asterisk/modules/res_sorcery_realtime.so
 %{_libdir}/asterisk/modules/res_speech.so
+%{_libdir}/asterisk/modules/res_speech_aeap.so
 %{_libdir}/asterisk/modules/res_srtp.so
 %{_libdir}/asterisk/modules/res_stasis.so
 %{_libdir}/asterisk/modules/res_stasis_answer.so
@@ -1313,6 +1315,7 @@ fi
 %{_libdir}/asterisk/modules/app_reload.so
 %{_libdir}/asterisk/modules/app_sf.so
 %{_libdir}/asterisk/modules/app_waitforcond.so
+%{_libdir}/asterisk/modules/func_evalexten.so
 %{_libdir}/asterisk/modules/func_frame_drop.so
 %{_libdir}/asterisk/modules/func_json.so
 %{_libdir}/asterisk/modules/func_sayfiles.so
@@ -1407,6 +1410,7 @@ fi
 %attr(0775,asterisk,asterisk) %dir %{_sysconfdir}/asterisk
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/acl.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/adsi.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/aeap.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/agents.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/alarmreceiver.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/amd.conf
