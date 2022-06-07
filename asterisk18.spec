@@ -843,46 +843,10 @@ popd
 %{__perl} -pi -e'/^MENUSELECT_ADDONS=/ and s,format_mp3,,' menuselect.makeopts
 %{__perl} -pi -e'/^MENUSELECT_APPS=/ and s,app_mp3,,' menuselect.makeopts
 
-# Build with plain voicemail and directory
-sed -i -e 's/^MENUSELECT_OPTS_app_voicemail=.*$/MENUSELECT_OPTS_app_voicemail=FILE_STORAGE/' menuselect.makeopts
-
-echo "### Building with plain voicemail and directory"
-%make_build %{makeargs}
-
-rm apps/app_voicemail.o apps/app_directory.o
-mv apps/app_voicemail.so apps/app_voicemail_plain.so
-mv apps/app_directory.so apps/app_directory_plain.so
-
-%if 0%{?imap}
-# Now build with IMAP storage for voicemail and directory
-sed -i -e 's/^MENUSELECT_OPTS_app_voicemail=.*$/MENUSELECT_OPTS_app_voicemail=IMAP_STORAGE/' menuselect.makeopts
-
-echo "### Building with IMAP voicemail and directory"
-%make_build %{makeargs}
-
-rm apps/app_voicemail.o apps/app_directory.o
-mv apps/app_voicemail.so apps/app_voicemail_imap.so
-mv apps/app_directory.so apps/app_directory_imap.so
-%endif
-
-# Now build with ODBC storage for voicemail and directory
-sed -i -e 's/^MENUSELECT_OPTS_app_voicemail=.*$/MENUSELECT_OPTS_app_voicemail=ODBC_STORAGE/' menuselect.makeopts
-echo "### Building with ODBC voicemail and directory"
-%make_build %{makeargs}
-
-rm apps/app_voicemail.o apps/app_directory.o
-mv apps/app_voicemail.so apps/app_voicemail_odbc.so
-mv apps/app_directory.so apps/app_directory_odbc.so
-
-# so that these modules don't get built again
-touch apps/app_voicemail.o apps/app_directory.o
-touch apps/app_voicemail.so apps/app_directory.so
-
 sed -i -e 's/^MENUSELECT_RES=\(.*\)\bres_mwi_external\b\(.*\)$/MENUSELECT_RES=\1 \2/g' menuselect.makeopts
 sed -i -e 's/^MENUSELECT_RES=\(.*\)\bres_mwi_external_ami\b\(.*\)$/MENUSELECT_RES=\1 \2/g' menuselect.makeopts
 sed -i -e 's/^MENUSELECT_RES=\(.*\)\bres_stasis_mailbox\b\(.*\)$/MENUSELECT_RES=\1 \2/g' menuselect.makeopts
 sed -i -e 's/^MENUSELECT_RES=\(.*\)\bres_ari_mailboxes\b\(.*\)$/MENUSELECT_RES=\1 \2/g' menuselect.makeopts
-sed -i -e 's/^MENUSELECT_APP=\(.*\)$/MENUSELECT_RES=\1 app_voicemail/g' menuselect.makeopts
 
 %make_build %{makeargs}
 
