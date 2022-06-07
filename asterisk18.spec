@@ -844,6 +844,8 @@ popd
 %{__perl} -pi -e'/^MENUSELECT_APPS=/ and s,app_mp3,,' menuselect.makeopts
 
 # Build with plain voicemail and directory
+sed -i -e 's/^MENUSELECT_OPTS_app_voicemail=.*$/MENUSELECT_OPTS_app_voicemail=FILE_STORAGE/' menuselect.makeopts
+
 echo "### Building with plain voicemail and directory"
 %make_build %{makeargs}
 
