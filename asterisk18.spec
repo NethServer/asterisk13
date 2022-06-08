@@ -41,7 +41,7 @@
 Summary:          The Open Source PBX
 Name:             asterisk18
 Version: 18.12.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 License:          GPLv2
 URL:              http://www.asterisk.org/
 Group: Utilities/System
@@ -1730,6 +1730,10 @@ fi
 %endif
 
 %changelog
+* Wed Jun 08 2022 Stefano Fancello <stefano.fancello@nethesis.it> - 18.12.1-2
+- Asterisk 18 voicemail is stored in filesystem instead of mysql DB - Bug NethServer/dev#6672
+- Update Asterisk to 18.12.1 - NethServer/dev#6669
+
 * Mon May 30 2022 Stefano Fancello <stefano.fancello@nethesis.it> - 18.11.1-2
 - Asterisk 18 package doesn't create asterisk user  - Bug NethServer/dev#6668
 
