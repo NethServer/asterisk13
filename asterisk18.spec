@@ -412,6 +412,8 @@ Modules for Asterisk that use Corosync.
 %package curl
 Summary: Modules for Asterisk that use cURL
 Requires: %{name}-core = %{version}-%{release}
+Provides: asterisk13-curl = 13.38.3-2
+Obsoletes: asterisk13-curl < 13.38.3-2
 
 %description curl
 Modules for Asterisk that use cURL.
