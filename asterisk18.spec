@@ -728,7 +728,7 @@ echo '*************************************************************************'
 
 %patch1016 -p1
 
-%patch2 -p1
+#%patch2 -p1
 
 cp %{S:3} menuselect.makedeps
 cp %{S:4} menuselect.makeopts
