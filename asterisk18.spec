@@ -36,12 +36,12 @@
 %global           freepbx    1
 %global           _datadir   /var/lib
 %global           _datarootdir %{_datadir}
-%global           makeargs        DEBUG= OPTIMIZE= DESTDIR=%{buildroot} ASTVARRUNDIR=%{astvarrundir} ASTDATADIR=%{_datadir}/asterisk ASTVARLIBDIR=%{_datadir}/asterisk ASTDBDIR=%{_localstatedir}/spool/asterisk NOISY_BUILD=1
+%global           makeargs      DONT_OPTIMIZE=1  DEBUG=1 OPTIMIZE=0 DESTDIR=%{buildroot} ASTVARRUNDIR=%{astvarrundir} ASTDATADIR=%{_datadir}/asterisk ASTVARLIBDIR=%{_datadir}/asterisk ASTDBDIR=%{_localstatedir}/spool/asterisk NOISY_BUILD=1
 
 Summary:          The Open Source PBX
 Name:             asterisk18
-Version: 18.12.1
-Release: 3%{?dist}
+Version: 18.17.0
+Release: 1%{?dist}
 License:          GPLv2
 URL:              http://www.asterisk.org/
 Group: Utilities/System
