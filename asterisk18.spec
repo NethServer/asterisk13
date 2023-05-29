@@ -40,8 +40,8 @@
 
 Summary:          The Open Source PBX
 Name:             asterisk18
-Version: 18.12.1
-Release: 3%{?dist}
+Version: 18.17.1
+Release: 1%{?dist}
 License:          GPLv2
 URL:              http://www.asterisk.org/
 Group: Utilities/System
@@ -105,6 +105,7 @@ BuildRequires:    popt-devel
 %{?systemd_requires}
 BuildRequires:    systemd
 BuildRequires:    kernel-headers
+BuildRequires:    libxslt-devel
 
 # for res_http_post
 %if 0%{?gmime}
@@ -266,6 +267,7 @@ Provides: asterisk13-core = 13.38.3-2
 Obsoletes: asterisk13-core < 13.38.3-2
 Requires: openssl
 Requires: libxml2
+Requires: libxslt
 Requires: libsrtp23
 Requires(pre): %{_sbindir}/groupadd
 Requires(pre): %{_sbindir}/useradd
@@ -1037,6 +1039,7 @@ fi
 %{_libdir}/asterisk/modules/app_blind_transfer.so
 %{_libdir}/asterisk/modules/app_bridgeaddchan.so
 %{_libdir}/asterisk/modules/app_bridgewait.so
+%{_libdir}/asterisk/modules/app_broadcast.so
 %{_libdir}/asterisk/modules/app_cdr.so
 %{_libdir}/asterisk/modules/app_celgenuserevent.so
 %{_libdir}/asterisk/modules/app_chanisavail.so
@@ -1056,6 +1059,7 @@ fi
 %{_libdir}/asterisk/modules/app_followme.so
 %{_libdir}/asterisk/modules/app_forkcdr.so
 %{_libdir}/asterisk/modules/app_getcpeid.so
+%{_libdir}/asterisk/modules/app_if.so
 %{_libdir}/asterisk/modules/app_image.so
 %{_libdir}/asterisk/modules/app_macro.so
 %{_libdir}/asterisk/modules/app_mp3.so
@@ -1076,6 +1080,7 @@ fi
 %{_libdir}/asterisk/modules/app_sayunixtime.so
 %{_libdir}/asterisk/modules/app_senddtmf.so
 %{_libdir}/asterisk/modules/app_sendtext.so
+%{_libdir}/asterisk/modules/app_signal.so
 %{_libdir}/asterisk/modules/app_sms.so
 %{_libdir}/asterisk/modules/app_softhangup.so
 %{_libdir}/asterisk/modules/app_speech_utils.so
@@ -1160,6 +1165,7 @@ fi
 %{_libdir}/asterisk/modules/func_dialplan.so
 %{_libdir}/asterisk/modules/func_enum.so
 %{_libdir}/asterisk/modules/func_env.so
+%{_libdir}/asterisk/modules/func_export.so
 %{_libdir}/asterisk/modules/func_extstate.so
 %{_libdir}/asterisk/modules/func_frame_trace.so
 %{_libdir}/asterisk/modules/func_global.so
@@ -1215,6 +1221,7 @@ fi
 %{_libdir}/asterisk/modules/res_audiosocket.so
 %{_libdir}/asterisk/modules/res_chan_stats.so
 %{_libdir}/asterisk/modules/res_clialiases.so
+%{_libdir}/asterisk/modules/res_cliexec.so
 %{_libdir}/asterisk/modules/res_clioriginate.so
 %{_libdir}/asterisk/modules/res_convert.so
 %{_libdir}/asterisk/modules/res_crypto.so
@@ -1229,6 +1236,7 @@ fi
 %{_libdir}/asterisk/modules/res_format_attr_siren14.so
 %{_libdir}/asterisk/modules/res_format_attr_siren7.so
 %{_libdir}/asterisk/modules/res_format_attr_vp8.so
+%{_libdir}/asterisk/modules/res_geolocation.so
 %{_libdir}/asterisk/modules/res_http_media_cache.so
 %if 0%{?gmime}
 %{_libdir}/asterisk/modules/res_http_post.so
@@ -1313,6 +1321,7 @@ fi
 %{_libdir}/asterisk/modules/func_pjsip_endpoint.so
 %{_libdir}/asterisk/modules/res_pjsip.so
 %{_libdir}/asterisk/modules/res_pjsip_acl.so
+%{_libdir}/asterisk/modules/res_pjsip_aoc.so
 %{_libdir}/asterisk/modules/res_pjsip_authenticator_digest.so
 %{_libdir}/asterisk/modules/res_pjsip_caller_id.so
 %{_libdir}/asterisk/modules/res_pjsip_config_wizard.so
@@ -1325,6 +1334,7 @@ fi
 %{_libdir}/asterisk/modules/res_pjsip_endpoint_identifier_ip.so
 %{_libdir}/asterisk/modules/res_pjsip_endpoint_identifier_user.so
 %{_libdir}/asterisk/modules/res_pjsip_exten_state.so
+%{_libdir}/asterisk/modules/res_pjsip_geolocation.so
 %{_libdir}/asterisk/modules/res_pjsip_header_funcs.so
 %{_libdir}/asterisk/modules/res_pjsip_history.so
 %{_libdir}/asterisk/modules/res_pjsip_logger.so
@@ -1347,6 +1357,7 @@ fi
 %{_libdir}/asterisk/modules/res_pjsip_refer.so
 %{_libdir}/asterisk/modules/res_pjsip_registrar.so
 %{_libdir}/asterisk/modules/res_pjsip_rfc3326.so
+%{_libdir}/asterisk/modules/res_pjsip_rfc3329.so
 %{_libdir}/asterisk/modules/res_pjsip_sdp_rtp.so
 %{_libdir}/asterisk/modules/res_pjsip_send_to_voicemail.so
 %{_libdir}/asterisk/modules/res_pjsip_session.so
@@ -1401,6 +1412,7 @@ fi
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/extensions.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/features.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/followme.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/geolocation.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/http.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/indications.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/logger.conf
