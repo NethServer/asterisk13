@@ -1009,7 +1009,7 @@ fi
 /bin/systemctl daemon-reload >/dev/null 2>&1 || :
 if [ $1 -ge 1 ] ; then
     # Package upgrade, not uninstall
-    /bin/systemctl try-restart asterisk.service >/dev/null 2>&1 || :
+    (/usr/sbin/asterisk -rx 'core restart when convenient' &>/dev/null &) || :
 fi
 
 %pre dahdi
