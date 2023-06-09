@@ -1744,6 +1744,10 @@ fi
 %endif
 
 %changelog
+* Fri Jun 09 2023 Stefano Fancello <stefano.fancello@nethesis.it> - 18.17.1-1
+- launch "restart when convenient" instead of "restart" on upgrade - Bug NethServer/dev#6749
+- Bump version to 18.17.1 (#39)
+
 * Mon Jul 04 2022 Stefano Fancello <stefano.fancello@nethesis.it> - 18.12.1-3
 - Update from Asterisk13 fails if asterisk13-curl is installed - Bug NethServer/dev#6682
 
