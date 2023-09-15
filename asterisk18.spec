@@ -735,7 +735,8 @@ echo '*************************************************************************'
 cp %{S:3} menuselect.makedeps
 cp %{S:4} menuselect.makeopts
 
-
+# Copy changelog into rpm root directory
+cp ChangeLogs/ChangeLog-%{version}.md ChangeLog
 
 # Fixup makefile so sound archives aren't downloaded/installed
 %{__perl} -pi -e 's/^all:.*$/all:/' sounds/Makefile
