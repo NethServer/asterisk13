@@ -1426,6 +1426,7 @@ fi
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/prometheus.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/queuerules.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/queues.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_http_media_cache.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_parking.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_stun_monitor.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/resolver_unbound.conf
