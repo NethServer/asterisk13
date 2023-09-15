@@ -1,8 +1,8 @@
 #%%global _rc 1
 #%%global _beta 3
 
-%global           pjsip_version   2.12
-%global           jansson_version 2.12
+%global           pjsip_version   2.13.1
+%global           jansson_version 2.13.1
 %global           bundledjansson 0
 
 %global           optflags        %{optflags} -Werror-implicit-function-declaration -DLUA_COMPAT_MODULE -fPIC
@@ -40,7 +40,7 @@
 
 Summary:          The Open Source PBX
 Name:             asterisk18
-Version: 18.17.1
+Version: 18.19.0
 Release: 1%{?dist}
 License:          GPLv2
 URL:              http://www.asterisk.org/
@@ -735,7 +735,8 @@ echo '*************************************************************************'
 cp %{S:3} menuselect.makedeps
 cp %{S:4} menuselect.makeopts
 
-
+# Copy changelog into rpm root directory
+cp ChangeLogs/ChangeLog-%{version}.md ChangeLog
 
 # Fixup makefile so sound archives aren't downloaded/installed
 %{__perl} -pi -e 's/^all:.*$/all:/' sounds/Makefile
@@ -1425,6 +1426,7 @@ fi
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/prometheus.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/queuerules.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/queues.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_http_media_cache.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_parking.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_stun_monitor.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/resolver_unbound.conf
