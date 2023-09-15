@@ -1,8 +1,8 @@
 #%%global _rc 1
 #%%global _beta 3
 
-%global           pjsip_version   2.12
-%global           jansson_version 2.12
+%global           pjsip_version   2.13.1
+%global           jansson_version 2.13.1
 %global           bundledjansson 0
 
 %global           optflags        %{optflags} -Werror-implicit-function-declaration -DLUA_COMPAT_MODULE -fPIC
@@ -40,7 +40,7 @@
 
 Summary:          The Open Source PBX
 Name:             asterisk18
-Version: 18.17.1
+Version: 18.19.0
 Release: 1%{?dist}
 License:          GPLv2
 URL:              http://www.asterisk.org/
