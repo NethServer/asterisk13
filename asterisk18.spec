@@ -1746,6 +1746,9 @@ fi
 %endif
 
 %changelog
+* Wed Sep 27 2023 Stefano Fancello <stefano.fancello@nethesis.it> - 18.19.0-1
+- Update Asterisk version to 18.19.0 (#42)
+
 * Mon Jun 12 2023 Stefano Fancello <stefano.fancello@nethesis.it> - 18.17.1-1
 - launch "restart when convenient" instead of "restart" - Bug NethServer/dev#6749
 - Bump version to 18.17.1 - NethServer/dev#6744
