@@ -41,7 +41,7 @@
 Summary:          The Open Source PBX
 Name:             asterisk18
 Version: 18.19.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 License:          GPLv2
 URL:              http://www.asterisk.org/
 Group: Utilities/System
@@ -1746,6 +1746,9 @@ fi
 %endif
 
 %changelog
+* Thu Oct 24 2023 Stefano Fancello <stefano.fancello@nethesis.it> - 18.19.0-2
+- Bump version to force restart - NethServer/dev#6766
+
 * Wed Sep 27 2023 Stefano Fancello <stefano.fancello@nethesis.it> - 18.19.0-1
 - Update Asterisk version to 18.19.0 (#42)
 
