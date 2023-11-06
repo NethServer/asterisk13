@@ -41,7 +41,7 @@
 Summary:          The Open Source PBX
 Name:             asterisk18
 Version: 18.19.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 License:          GPLv2
 URL:              http://www.asterisk.org/
 Group: Utilities/System
@@ -269,6 +269,7 @@ Requires: openssl
 Requires: libxml2
 Requires: libxslt
 Requires: libsrtp23
+Requires: nss >= 3.90.0-2
 Requires(pre): %{_sbindir}/groupadd
 Requires(pre): %{_sbindir}/useradd
 
@@ -1746,6 +1747,9 @@ fi
 %endif
 
 %changelog
+* Mon Nov 06 2023 Stefano Fancello <stefano.fancello@nethesis.it> - 18.19.0-3
+- Add explicit require for nss >= 3.90.0-2 - NethServer/dev#6766
+
 * Tue Oct 24 2023 Stefano Fancello <stefano.fancello@nethesis.it> - 18.19.0-2
 - Bump version to force restart - NethServer/dev#6766
 
