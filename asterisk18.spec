@@ -40,8 +40,8 @@
 
 Summary:          The Open Source PBX
 Name:             asterisk18
-Version: 18.19.0
-Release: 2%{?dist}
+Version: 18.20.2
+Release: 1%{?dist}
 License:          GPLv2
 URL:              http://www.asterisk.org/
 Group: Utilities/System
