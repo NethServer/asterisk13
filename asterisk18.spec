@@ -40,8 +40,8 @@
 
 Summary:          The Open Source PBX
 Name:             asterisk18
-Version: 18.19.0
-Release: 2%{?dist}
+Version: 18.20.2
+Release: 1%{?dist}
 License:          GPLv2
 URL:              http://www.asterisk.org/
 Group: Utilities/System
@@ -1646,6 +1646,7 @@ fi
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cdr_odbc.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/cel_odbc.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/func_odbc.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_config_odbc.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/res_odbc.conf
 %{_libdir}/asterisk/modules/cdr_adaptive_odbc.so
 %{_libdir}/asterisk/modules/cdr_odbc.so
