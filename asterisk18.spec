@@ -1747,6 +1747,9 @@ fi
 %endif
 
 %changelog
+* Fri Apr 19 2024 Stefano Fancello <gentoo.stefano@gmail.com> - 18.20.2-1
+- Update Asterisk to 18.20.2 - NethServer/dev#6810
+
 * Tue Oct 24 2023 Stefano Fancello <stefano.fancello@nethesis.it> - 18.19.0-2
 - Bump version to force restart - NethServer/dev#6766
 
