@@ -1435,6 +1435,7 @@ fi
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/sorcery.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/stasis.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/statsd.conf
+%attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/stir_shaken.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/telcordia-1.adsi
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/udptl.conf
 %attr(0664,asterisk,asterisk) %config(noreplace) %{_sysconfdir}/asterisk/samples-%{version}/users.conf
