@@ -40,7 +40,7 @@
 
 Summary:          The Open Source PBX
 Name:             asterisk18
-Version: 18.20.2
+Version: 18.24.3
 Release: 1%{?dist}
 License:          GPLv2
 URL:              http://www.asterisk.org/
@@ -1276,7 +1276,6 @@ fi
 %{_libdir}/asterisk/modules/res_stasis_recording.so
 %{_libdir}/asterisk/modules/res_stasis_snoop.so
 %{_libdir}/asterisk/modules/res_statsd.so
-%{_libdir}/asterisk/modules/res_stir_shaken.so
 %{_libdir}/asterisk/modules/res_stun_monitor.so
 %{_libdir}/asterisk/modules/res_timing_pthread.so
 %{_libdir}/asterisk/modules/res_timing_timerfd.so
@@ -1363,7 +1362,6 @@ fi
 %{_libdir}/asterisk/modules/res_pjsip_send_to_voicemail.so
 %{_libdir}/asterisk/modules/res_pjsip_session.so
 %{_libdir}/asterisk/modules/res_pjsip_sips_contact.so
-%{_libdir}/asterisk/modules/res_pjsip_stir_shaken.so
 %{_libdir}/asterisk/modules/res_pjsip_t38.so
 %{_libdir}/asterisk/modules/res_pjsip_transport_websocket.so
 %{_libdir}/asterisk/modules/res_pjsip_xpidf_body_generator.so
