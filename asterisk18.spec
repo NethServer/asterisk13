@@ -1745,6 +1745,9 @@ fi
 %endif
 
 %changelog
+* Mon Oct 28 2024 Stefano Fancello <gentoo.stefano@gmail.com> - 18.25.0-1
+- Asterisk 18.24.3 [bug]: app_voicemail ODBC #831 - Bug NethServer/dev#7066
+
 * Thu Oct 10 2024 Stefano Fancello <gentoo.stefano@gmail.com> - 18.24.3-1
 - Update to 18.24.3 (#46)
 
