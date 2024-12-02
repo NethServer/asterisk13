@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-22.04
     env:
       dest_id: core
-      docker_image: ghcr.io/nethserver/makerpms:devtoolset9
+      docker_image: ghcr.io/nethserver/makerpms:devtoolset7
     steps:
       - uses: actions/checkout@v3
         with:
@@ -43,7 +43,7 @@ jobs:
             --hostname $GITHUB_RUN_ID-$GITHUB_RUN_NUMBER.nethserver.org \
             --volume $PWD:/srv/makerpms/src:ro \
             ${{ env.docker_image }} \
-            scl enable devtoolset-9 -- makerpms-github -s *.spec
+            scl enable devtoolset-7 -- makerpms-github -s *.spec
           echo "Build succesful."
           if [[ "${{ secrets.endpoints_pack }}" && "${{ secrets.secret }}" ]]; then
             echo "Publish configuration exists, pushing package to repo."
